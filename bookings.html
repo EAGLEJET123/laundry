@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Laundry Booking System</title>
+    <style>
+        :root {
+            --primary: #25D366;
+            --secondary: #128C7E;
+            --light: #f8f9fa;
+            --dark: #343a40;
+        }
+        
+        * {
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        .booking-container {
+            max-width: 600px;
+            margin: 2rem auto;
+            padding: 1.5rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+            background: white;
+        }
+        
+        .booking-header {
+            text-align: center;
+            margin-bottom: 1.5rem;
+            color: var(--secondary);
+        }
+        
+        .booking-header h2 {
+            margin: 0;
+            font-size: 1.8rem;
+        }
+        
+        .booking-header p {
+            color: #6c757d;
+            margin-top: 0.5rem;
+        }
+        
+        .form-group {
+            margin-bottom: 1.2rem;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+        }
+        
+        .form-control {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid #ced4da;
+            border-radius: 8px;
+            font-size: 1rem;
+            transition: border-color 0.3s;
+        }
+        
+        .form-control:focus {
+            border-color: var(--primary);
+            outline: none;
+            box-shadow: 0 0 0 3px rgba(37, 211, 102, 0.2);
+        }
+        
+        .btn-whatsapp {
+            background: var(--primary);
+            color: white;
+            border: none;
+            padding: 14px 20px;
+            width: 100%;
+            font-size: 1.1rem;
+            font-weight: 600;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background 0.3s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+        
+        .btn-whatsapp:hover {
+            background: var(--secondary);
+        }
+        
+        .error-message {
+            color: #dc3545;
+            font-size: 0.85rem;
+            margin-top: 5px;
+            display: none;
+        }
+        
+        .whatsapp-icon {
+            font-size: 1.4rem;
+        }
+        
+        @media (max-width: 480px) {
+            .booking-container {
+                margin: 1rem;
+                padding: 1.2rem;
+            }
+            
+            .booking-header h2 {
+                font-size: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="booking-container">
+        <div class="booking-header">
+            <h2>Book Laundry Service</h2>
+            <p>Schedule pickup directly via WhatsApp</p>
+        </div>
+        
+        <form id="bookingForm">
+            <div class="form-group">
+                <label for="name">Full Name</label>
+                <input type="text" id="name" class="form-control" placeholder="John Adekunle" required>
+                <div class="error-message" id="nameError">Please enter your name</div>
+            </div>
+            
+            <div class="form-group">
+                <label for="phone">Phone Number</label>
+                <input type="tel" id="phone" class="form-control" placeholder="0803xxxxxxx" required>
+                <div class="error-message" id="phoneError">Please enter a valid Nigerian phone number</div>
+            </div>
+            
+            <div class="form-group">
+                <label for="date">Pickup Date</label>
+                <input type="date" id="date" class="form-control" required>
+                <div class="error-message" id="dateError">Please select a date</div>
+            </div>
+            
+            <div class="form-group">
+                <label for="time">Preferred Time</label>
+                <select id="time" class="form-control" required>
+                    <option value="">Select time</option>
+                    <option value="Morning (8am-11am)">Morning (8am-11am)</option>
+                    <option value="Afternoon (12pm-3pm)">Afternoon (12pm-3pm)</option>
+                    <option value="Evening (4pm-7pm)">Evening (4pm-7pm)</option>
+                </select>
+                <div class="error-message" id="timeError">Please select a time slot</div>
+            </div>
+            
+            <div class="form-group">
+                <label for="service">Service Type</label>
+                <select id="service" class="form-control" required>
+                    <option value="">Select service</option>
+                    <option value="Wash & Fold">Wash & Fold</option>
+                    <option value="Wash & Iron">Wash & Iron</option>
+                    <option value="Dry Cleaning">Dry Cleaning</option>
+                    <option value="Premium Care">Premium Care</option>
+                </select>
+                <div class="error-message" id="serviceError">Please select a service</div>
+            </div>
+            
+            <div class="form-group">
+                <label for="notes">Special Instructions (Optional)</label>
+                <textarea id="notes" class="form-control" rows="3" placeholder="Fabric types, stains, or special requests"></textarea>
+            </div>
+            
+            <button type="submit" class="btn-whatsapp">
+                <span class="whatsapp-icon">📱</span> Send Booking via WhatsApp
+            </button>
+        </form>
+    </div>
+
+    <script>
+        document.getElementById('bookingForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Reset errors
+            document.querySelectorAll('.error-message').forEach(el => el.style.display = 'none');
+            
+            // Validate inputs
+            let isValid = true;
+            const name = document.getElementById('name').value.trim();
+            const phone = document.getElementById('phone').value.trim();
+            const date = document.getElementById('date').value;
+            const time = document.getElementById('time').value;
+            const service = document.getElementById('service').value;
+            
+            if (!name) {
+                document.getElementById('nameError').style.display = 'block';
+                isValid = false;
+            }
+            
+            if (!validateNigerianPhone(phone)) {
+                document.getElementById('phoneError').style.display = 'block';
+                isValid = false;
+            }
+            
+            if (!date) {
+                document.getElementById('dateError').style.display = 'block';
+                isValid = false;
+            }
+            
+            if (!time) {
+                document.getElementById('timeError').style.display = 'block';
+                isValid = false;
+            }
+            
+            if (!service) {
+                document.getElementById('serviceError').style.display = 'block';
+                isValid = false;
+            }
+            
+            if (!isValid) return;
+            
+            // Format WhatsApp message
+            const notes = document.getElementById('notes').value.trim();
+            const message = formatWhatsAppMessage(name, phone, date, time, service, notes);
+            
+            // Send to WhatsApp
+            sendToWhatsApp(message);
+        });
+        
+        function validateNigerianPhone(phone) {
+            // Nigerian phone regex (covers all major networks)
+            const regex = /^(0|234)?[7-9][01]\d{8}$/;
+            return regex.test(phone);
+        }
+        
+        function formatWhatsAppMessage(name, phone, date, time, service, notes) {
+            const formattedDate = new Date(date).toLocaleDateString('en-NG', {
+                weekday: 'long',
+                year: 'numeric',
+                month: 'long',
+                day: 'numeric'
+            });
+            
+            return `*NEW LAUNDRY BOOKING*\n\n` +
+                   `*Name:* ${name}\n` +
+                   `*Phone:* ${phone}\n` +
+                   `*Date:* ${formattedDate}\n` +
+                   `*Time:* ${time}\n` +
+                   `*Service:* ${service}\n` +
+                   (notes ? `*Special Instructions:*\n${notes}` : '');
+        }
+        
+        function sendToWhatsApp(message) {
+            // REPLACE WITH YOUR WHATSAPP NUMBER (in international format)
+            const whatsappNumber = "2348115240369"; // Example: 2348123456789
+            
+            // Encode message for URL
+            const encodedMessage = encodeURIComponent(message);
+            
+            // Create WhatsApp link
+            const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodedMessage}`;
+            
+            // Open in new tab
+            window.open(whatsappUrl, '_blank');
+            
+            // Optional: Reset form after submission
+            document.getElementById('bookingForm').reset();
+        }
+    </script>
+</body>
+</html>

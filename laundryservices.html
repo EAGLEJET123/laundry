@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Premium Laundry Services | Your Brand</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="services.css">
+</head>
+<body>
+   <!-- Header & Navigation -->
+    <header>
+       <!-- <div class="nav-order-icon">
+                <a href="#" id="orderHistoryIcon">
+                    <i class="fas fa-history"></i>
+                    <span class="order-count">0</span>
+                </a>
+            </div> -->
+        </nav>
+        <nav>
+            <div class="logo">
+                <i class="fas fa-tshirt"></i>
+                <h1><a href="laundry.html"> FreshFold</a></h1>
+            </div>
+            
+            <ul class="nav-links">
+                <li><a href="laundry.html">Home</a></li>
+                <li><a href="laundryservices.html">Services</a></li>
+                <li><a href="aboutus.html">About Us</a></li>
+                <li><a href="locate.html">Location</a>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+        
+        <div class="nav-buttons">
+            <a href="#login" class="btns btn-secondary">Login</a>
+            <a href="#signup" class="btns btn-primary">Schedule Pickup</a>
+        </div>
+        
+        <div class="mobile-toggle">
+            <i class="fas fa-bars"></i>
+        </div>
+    </nav>
+
+</header>
+<!-- Mobile Menu (Hidden by default) -->
+<div class="mobile-menu">
+    <ul class="nav-links">
+       <li><a href="laundry.html">Home</a></li>
+                <li><a href="laundryservices.html">Services</a></li>
+                <li><a href="aboutus.html">About Us</a></li>
+                <li><a href="locate.html">Location</a>
+            <li><a href="#contact">Contact</a></li>
+    </ul>
+    <div class="nav-buttons">
+        <a href="#login" class="btns btn-secondary">Login</a>
+        <a href="#signup" class="btns btn-primary">Schedule Pickup</a>
+    </div>
+</div>
+<!-- Notification Element -->
+    <div class="notification" id="orderNotification">
+        <i class="fas fa-check-circle"></i> Order sent successfully!
+    </div>
+    
+    <!-- Order History Modal -->
+    <div class="modal" id="orderHistoryModal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <h2>Your Order History</h2>
+            <div id="orderHistoryList">
+                <!-- Orders will appear here -->
+            </div>
+        </div>
+    </div>
+  
+  
+  
+    
+    <main class="services-container">
+        <section class="services-intro">
+            <div class="section-title">
+                <h2>Premium Laundry Services</h2>
+            </div>
+            <p style="text-align: center; max-width: 800px; margin: 0 auto 3rem; font-size: 1.1rem;">
+                Experience hassle-free cleaning with our fast, reliable, and eco-friendly solutions tailored for Nigerian fabrics and lifestyles
+            </p>
+        </section>
+        
+        <section class="service-cards">
+            <div class="service-card">
+                <div class="service-icon">
+                    <i class="fas fa-tshirt"></i>
+                </div>
+                <div class="service-content">
+                    <h3>Wash & Fold</h3>
+                    <ul>
+                        <li><i class="fas fa-check-circle"></i> Daily clothing & linens</li>
+                        <li><i class="fas fa-check-circle"></i> Gentle fabric care</li>
+                        <li><i class="fas fa-check-circle"></i> Same-day service</li>
+                        <li><i class="fas fa-check-circle"></i> Special care for Ankara</li>
+                    </ul>
+                    <div class="price-tag">₦1,500 per 5kg bundle</div>
+                    <a href="#calculator" class="btn">Schedule Pickup</a>
+                </div>
+            </div>
+            
+            <div class="service-card">
+                <div class="service-icon">
+                    <i class="fas fa-soap"></i>
+                </div>
+                <div class="service-content">
+                    <h3>Dry Cleaning</h3>
+                    <ul>
+                        <li><i class="fas fa-check-circle"></i> Delicate fabrics</li>
+                        <li><i class="fas fa-check-circle"></i> Formal wear & suits</li>
+                        <li><i class="fas fa-check-circle"></i> Traditional attire</li>
+                        <li><i class="fas fa-check-circle"></i> Leather & special items</li>
+                    </ul>
+                    <div class="price-tag">From ₦1,200 per item</div>
+                    <a href="#calculator" class="btn">Request Service</a>
+                </div>
+            </div>
+            
+            <div class="service-card">
+                <div class="service-icon">
+                    <i class="fas fa-fire"></i>
+                </div>
+                <div class="service-content">
+                    <h3>Ironing Service</h3>
+                    <ul>
+                        <li><i class="fas fa-check-circle"></i> Professional finishing</li>
+                        <li><i class="fas fa-check-circle"></i> Steam treatment</li>
+                        <li><i class="fas fa-check-circle"></i> Same-day return</li>
+                        <li><i class="fas fa-check-circle"></i> Bulk discounts</li>
+                    </ul>
+                    <div class="price-tag">₦300 per item</div>
+                    <a href="#calculator" class="btn">Get Crisp Look</a>
+                </div>
+            </div>
+        </section>
+        
+        <section class="process-flow">
+            <div class="section-title">
+                <h2>How Our Service Works</h2>
+            </div>
+            <div class="step">
+                <div class="step-number">1</div>
+                <h3>Schedule Pickup</h3>
+                <p>Book via app, website or call</p>
+            </div>
+            <div class="step">
+                <div class="step-number">2</div>
+                <h3>We Collect</h3>
+                <p>Free pickup from your doorstep</p>
+            </div>
+            <div class="step">
+                <div class="step-number">3</div>
+                <h3>Expert Cleaning</h3>
+                <p>Quality-controlled processing</p>
+            </div>
+            <div class="step">
+                <div class="step-number">4</div>
+                <h3>Delivery</h3>
+                <p>Fresh clothes returned in 24hrs</p>
+            </div>
+        </section>
+        
+       <!-- Pricing Calculator Section -->
+        <section id="calculator" class="pricing-calculator">
+            <div class="section-title">
+                <h2>Instant Price Calculator</h2>
+            </div>
+            <div class="calculator-grid">
+                <div class="calculator-group">
+                    <label for="service-type">Service Type</label>
+                    <select id="service-type">
+                        <option value="wash_fold">Wash & Fold</option>
+                        <option value="dryclean">Dry Cleaning</option>
+                        <option value="ironing">Ironing Service</option>
+                        <option value="stain">Stain Removal</option>
+                    </select>
+                </div>
+                
+                <div class="calculator-group">
+                    <label for="item-weight">Weight (kg) or Items</label>
+                    <input type="number" id="item-weight" min="1" value="5" placeholder="Enter weight or items">
+                </div>
+                
+                <div class="calculator-group">
+                    <label for="location">Location</label>
+                    <select id="location">
+                        <option value="lagos">Lagos</option>
+                        <option value="abuja">Abuja</option>
+                        <option value="port-harcourt">Port Harcourt</option>
+                        <option value="other">Other Cities</option>
+                    </select>
+                </div>
+            </div>
+            
+            <button id="calculate-btn" class="btn">Calculate Price</button>
+            
+            <div class="result-box">
+                <p>Approximate cost:</p>
+                <div class="result-price">₦ 0.00</div>
+                <p>Includes pickup and delivery</p>
+                
+                <!-- Place Order Button -->
+                <button id="place-order-btn" class="btn place-order-btn">
+                    <i class="fab fa-whatsapp"></i> Place Order via WhatsApp
+                </button>
+            </div>
+        </section>
+        
+        <section class="special-services">
+            <div class="section-title">
+                <h2>Specialized Treatments</h2>
+            </div>
+            <div class="specialty">
+                <div class="specialty-icon">
+                    <i class="fas fa-star"></i>
+                </div>
+                <div>
+                    <h3>Stain Removal</h3>
+                    <p>Expert treatment for tough stains</p>
+                </div>
+            </div>
+            <div class="specialty">
+                <div class="specialty-icon">
+                    <i class="fas fa-umbrella"></i>
+                </div>
+                <div>
+                    <h3>Rainy Season Care</h3>
+                    <p>Special drying for humid weather</p>
+                </div>
+            </div>
+            <div class="specialty">
+                <div class="specialty-icon">
+                    <i class="fas fa-vest"></i>
+                </div>
+                <div>
+                    <h3>Traditional Attire</h3>
+                    <p>Special care for Agbada, Ankara</p>
+                </div>
+            </div>
+        </section>
+        
+        <section class="service-guarantee">
+            <h2>Our Quality Promise</h2>
+            <div class="guarantee-list">
+                <div class="guarantee-item">
+                    <i class="fas fa-check-circle"></i>
+                    <span>100% Satisfaction Guarantee</span>
+                </div>
+                <div class="guarantee-item">
+                    <i class="fas fa-leaf"></i>
+                    <span>Eco-friendly detergents</span>
+                </div>
+                <div class="guarantee-item">
+                    <i class="fas fa-shield-alt"></i>
+                    <span>Damage protection coverage</span>
+                </div>
+                <div class="guarantee-item">
+                    <i class="fas fa-truck"></i>
+                    <span>Free pickup & delivery</span>
+                </div>
+            </div>
+        </section>
+    </main>
+    
+    <!-- Footer Section -->
+<footer id="contact">
+    <div class="footer-grid">
+        <div class="footer-col">
+            <h4>FreshFold Laundry</h4>
+            <p>Nigeria's premium laundry service providing professional cleaning with convenience at your fingertips.</p>
+            <div class="social-links">
+                <a href="#"><i class="fab fa-facebook-f"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-linkedin-in"></i></a>
+            </div>
+        </div>
+        
+        <div class="footer-col">
+            <h4>Quick Links</h4>
+            <ul class="footer-links">
+                <li><a href="laundry.html">Home</a></li>
+                <li><a href="laundryservices.html">Services</a></li>
+                <li><a href="aboutus.html">About Us</a></li>
+                <li><a href="locate.html">Location</a>
+            <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
+        
+        <div class="footer-col">
+            <h4>Our Services</h4>
+            <ul class="footer-links">
+                <li><a href="#">Wash & Fold</a></li>
+                <li><a href="#">Dry Cleaning</a></li>
+                <li><a href="#">Stain Removal</a></li>
+                <li><a href="#">Home Textiles</a></li>
+                <li><a href="#">Specialty Fabrics</a></li>
+            </ul>
+        </div>
+        
+        <div class="footer-col">
+            <h4>Contact Us</h4>
+            <ul class="contact-info">
+                <li><i class="fas fa-map-marker-alt"></i> 24 Laundry Road, Edo state, Nigeria</li>
+                <li><i class="fas fa-phone"></i> +234 812 345 6789</li>
+                <li><i class="fas fa-envelope"></i> eaglejet58@gmail.com</li>
+                <li><i class="fas fa-clock"></i> Mon-Sat: 8am - 8pm</li>
+            </ul>
+        </div>
+    </div>
+    
+    <div class="copyright">
+        <p>&copy; 2025 Eagle Laundry. All Rights Reserved.</p>
+    </div>
+</footer>
+
+
+    <script src="services.js">
+        
+    </script>
+</body>
+</html>
