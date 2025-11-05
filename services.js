@@ -94,7 +94,7 @@
             );
             
             // Replace with your WhatsApp business number (remove spaces)
-            const whatsappNumber = '2348123456789'; 
+            const whatsappNumber = '2349093518280'; 
             
             // Open WhatsApp - FIXED SYNTAX
             window.open(`https://wa.me/${whatsappNumber}?text=${message}`, '_blank');
@@ -224,3 +224,4 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     scrollToElement(el_id);
   });
 });
+
